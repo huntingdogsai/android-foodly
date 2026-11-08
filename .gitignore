@@ -1,0 +1,9 @@
+node_modules/
+dist/
+build/
+.gradle/
+.dart_tool/
+*.log
+.DS_Store
+local.properties
+ios/Pods/
