@@ -111,7 +111,12 @@ class MainActivity : Activity() {
       }
     }
     column.addView(rowOf(TextView(this).apply { text = "Subtotal" }.grow(), TextView(this).apply { text = formatPrice(cart.subtotal()) }))
-    column.addView(rowOf(button("Back") { showHome() }, button("Checkout") { showCheckout() }.also { it.isEnabled = cart.isNotEmpty() }))
+    // Clear cart empties the whole basket in a single tap; disabled while the cart is already empty.
+    column.addView(rowOf(
+      button("Back") { showHome() },
+      button("Clear cart") { cart = emptyList(); showCart() }.also { it.isEnabled = cart.isNotEmpty() },
+      button("Checkout") { showCheckout() }.also { it.isEnabled = cart.isNotEmpty() },
+    ))
   }
 
   private fun showCheckout() {

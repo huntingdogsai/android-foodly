@@ -10,7 +10,7 @@ import java.net.URLEncoder
  *  meant to run off the main thread (MainActivity dispatches them on a background executor). From the
  *  emulator the host is 10.0.2.2; override [base] to point elsewhere. */
 object FoodlyApi {
-  @Volatile var base: String = "http://10.0.2.2:8787"
+  @Volatile var base: String = "https://huntingdogs-foodly-api-snbl7sdvbq-ew.a.run.app"
   @Volatile private var token: String? = null
 
   data class Product(val id: String, val name: String, val price: Int, val inStock: Boolean, val category: String)
